@@ -1,8 +1,8 @@
 # add all Verilog source files, separated by spaces
-set sourcefiles {Divider.v}
+set sourcefiles {Divider.v registru.v ALU.v Multiplier.v Adder.v Subtractor.v}
 
 # set name of the top module
-set topmodule TopModule
+set topmodule ALU
 
 ###################################################
 #####DO NOT MODIFY THE SCRIPT BELLOW THIS LINE#####

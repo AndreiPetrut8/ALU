@@ -82,7 +82,7 @@ module BoothRadix4Multiplier(
             next_count = count + 2;
             
             end
-            if(~c[5])
+            if(~c[5] & c[4])
               next_count = count + 2;
             if(c[4]) begin
               next_A_out = (A_reg[7]) ? ~({~A_reg[7],A_reg[6:0], Q_temp[8:1]}-1) : {A_reg[7:0], Q_temp[8:1]};
@@ -96,7 +96,7 @@ module BoothRadix4Multiplier(
 
 endmodule
 
-module TopModule();
+/*module TopModule();
     reg clk, rst;
     reg [7:0] A, B;
     wire [15:0] Out;
@@ -135,4 +135,4 @@ module TopModule();
 end
   end
 
-endmodule
+endmodule*/
