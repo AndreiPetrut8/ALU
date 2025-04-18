@@ -1,4 +1,5 @@
 module FullAdder(
+    
     input A,
     input B,
     input Cin,
@@ -6,12 +7,15 @@ module FullAdder(
     output Cout,
     output Pi
 );
+   
     assign Sum = A ^ B ^ Cin;
     assign Cout = (A & B) | (Cin & A) | (Cin & B);
     assign Pi = A | B;
+
 endmodule
 
 module RippleCarryAdder4bit(
+   
     input [3:0] A,
     input [3:0] B,
     input Cin,
@@ -31,6 +35,7 @@ module RippleCarryAdder4bit(
 endmodule
 
 module CarrySkipAdder8bit(
+
     input [7:0] A,
     input [7:0] B,
     input Cin,
@@ -56,6 +61,7 @@ module CarrySkipAdder8bit(
     
     
     RippleCarryAdder4bit rca2 (
+	
         .A(A[7:4]),
         .B(B[7:4]),
         .Cin(CarryBlock),
