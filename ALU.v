@@ -56,7 +56,7 @@ module ALU();
     {A , B, Cin} = {8'd100, 8'd24, 1'b0};
     {A1 , B1, Bin} = {8'd100, 8'd24, 1'b0};
     {A2 , B2} = {8'd100, 8'd24};
-    {A3 , B3} = {8'd100, 8'd24};
+    {A3 , B3} = {8'd12, 8'd10};
     #(CLK_PERIOD*12);
     /*for(i=1; i<8; i=i+1) begin
       #(CLK_PERIOD*12); 
