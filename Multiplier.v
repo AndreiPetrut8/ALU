@@ -61,7 +61,7 @@ module BoothRadix4Multiplier(
         .Cout(Cout)
     );    
 
-     always @(posedge clk or negedge rst) begin
+     always @(negedge clk or negedge rst) begin
         
         next_M_temp = ({M[7], M} & {9{c[0]}}) | ({M, 1'b0} & {9{c[1]}}) | ({~{M, 1'b0}+1} & {9{c[2]}}) | ({~{M[7], M}+1} & {9{c[3]}});
         next_Q_temp = Q_temp;
@@ -86,12 +86,13 @@ module BoothRadix4Multiplier(
             next_A_reg = ({next_A_reg[8], next_A_reg[8], next_A_reg[8:2]} & {9{~c[4]}}) | (next_A_reg & {9{c[4]}});
             next_count = ((count + 2) & {4{~c[4]}}) | (count & {4{c[4]}});
             
+		next_en = c[5];
               next_count = ((count + 2) & {4{~c[5] & c[4]}}) | (next_count & {4{c[5] | ~c[4]}});
             
               next_A_out = ((A_reg[7]) ? ~({~A_reg[7],A_reg[6:0], Q_temp[8:1]}-1) : {A_reg[7:0], Q_temp[8:1]} & {16{c[4]}}) | (next_A_out & {16{~c[4]}});
             
             
-              next_en = (1'b0 & c[5]) | (1'b1 & ~c[5]);
+              
     end
     en = next_en;
   end

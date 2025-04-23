@@ -63,7 +63,7 @@ wire Cout;
 
 	                   
 
-    always @(posedge clk or negedge rst) begin
+    always @(negedge clk or negedge rst) begin
  //$display("A = %b, B = %b, SUM = %b, count = %b, c = %b", P, B_sum, {Cout^P[8]^B_sum[8], P_temp}, count, c);
 	
         if(~rst) begin
@@ -119,7 +119,7 @@ wire Cout;
             next_R = {P>>k} & {8{c[2]}} | next_R & {8{~c[2]}};
  
           
-            next_en = 1'b0 & c[3] | 1'b1 & ~c[3];
+            next_en = c[3];
     end
     en = next_en;
   end
